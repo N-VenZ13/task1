@@ -67,7 +67,8 @@ class LoginScreen : Screen {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(innerPadding),
+                    .padding(innerPadding)
+                    .background(color = Color(0xFFFFFDE1)),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
@@ -123,7 +124,7 @@ class LoginScreen : Screen {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 16.dp),
+                        .padding(horizontal = 40.dp),
                     horizontalArrangement = Arrangement.SpaceBetween // Mengatur item agar terpisah antara kiri dan kanan
                 ) {
                     // Checkbox dengan teks "Ingat saya"

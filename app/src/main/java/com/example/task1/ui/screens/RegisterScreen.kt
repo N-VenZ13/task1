@@ -29,6 +29,7 @@ import com.example.task1.R
 import androidx.compose.ui.platform.LocalContext
 
 import android.content.Context
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.ui.layout.FirstBaseline
 
@@ -61,7 +62,8 @@ class RegisterScreen : Screen {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(innerPadding),
+                    .padding(innerPadding)
+                    .background(color = Color(0xFFFFFDE1)),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
@@ -154,8 +156,8 @@ class RegisterScreen : Screen {
 
                 Row(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 16.dp),
+                        .width(350.dp)
+                        .padding(horizontal = 25.dp),
                     horizontalArrangement = Arrangement.Start
                 ) {
                     Checkbox(
@@ -219,7 +221,7 @@ class RegisterScreen : Screen {
                         style = androidx.compose.ui.text.TextStyle(fontSize = 14.sp),
                         modifier = Modifier
                             .padding(top = 8.dp)
-                            .alignBy(FirstBaseline)
+
                     )
                     Spacer(modifier = Modifier.padding(80.dp))
                 }
