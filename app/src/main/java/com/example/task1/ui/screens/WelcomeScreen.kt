@@ -1,5 +1,6 @@
 package com.example.task1.ui.screens
 
+import RegisterScreen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -72,7 +73,7 @@ class WelcomeScreen : Screen {
                 )
 
                 Button(
-                    onClick = { /*TODO*/ },
+                    onClick = { navigator?.replace(LoginScreen()) },
                     modifier = Modifier
                         .width(200.dp)
                         .height(50 .dp),
@@ -88,7 +89,7 @@ class WelcomeScreen : Screen {
                 }
                 Spacer(modifier = Modifier.height(16.dp))
                 Button(
-                    onClick = { /*TODO*/ },
+                    onClick = { navigator?.replace(RegisterScreen()) },
                     modifier = Modifier
                         .width(200.dp)
                         .height(50.dp),

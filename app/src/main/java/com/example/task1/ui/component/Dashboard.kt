@@ -1,7 +1,15 @@
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.AddCircle
+import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
@@ -9,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -44,30 +53,49 @@ fun Dashboard(
                 .align(Alignment.TopStart)  // Memposisikan Row di atas
                 .padding(top = 50.dp)  // Memberi jarak dari text "Dashboard"
         ) {
-            DashboardMenuCard("Tambah Barang")
-            DashboardMenuCard("List")
-            DashboardMenuCard("History")
-            DashboardMenuCard("Stok")
+            DashboardMenuCard("Tambah", icon = Icons.Default.Add)
+            DashboardMenuCard("List", icon = Icons.Default.Menu)
+            DashboardMenuCard("History", icon = Icons.Default.CheckCircle)
+            DashboardMenuCard("Stok", icon = Icons.Default.ShoppingCart)
         }
     }
 }
 
-// Fungsi untuk membuat Card Menu
 @Composable
-fun DashboardMenuCard(title: String) {
+fun DashboardMenuCard(title: String, icon: ImageVector) {
     Card(
         shape = RoundedCornerShape(8.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.LightGray),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFF2994B2)),
         modifier = Modifier
             .width(80.dp)
             .height(80.dp)
             .clickable { /* Aksi ketika card diklik */ }
     ) {
         Box(
-            contentAlignment = Alignment.Center,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxSize(),
         ) {
-            Text(text = title, fontSize = 14.sp, fontWeight = FontWeight.Medium)
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.SpaceBetween,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                // Logo di tengah atas Box
+                Spacer(modifier = Modifier.height(8.dp))
+                Image(
+                    imageVector = icon,
+                    contentDescription = null,
+                    modifier = Modifier.size(24.dp)
+                )
+
+                // Teks di tengah bawah Box
+                Text(
+                    text = title,
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.W600,
+                    modifier = Modifier.padding(bottom = 8.dp),
+                    color = Color(0xFF362207)
+                )
+            }
         }
     }
 }

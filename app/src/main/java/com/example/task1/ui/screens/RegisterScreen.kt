@@ -32,11 +32,14 @@ import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.ui.layout.FirstBaseline
+import cafe.adriel.voyager.navigator.LocalNavigator
 
 
 class RegisterScreen : Screen {
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.current
+        RegisterScreenContent(navigator)
     }
 
     @OptIn(ExperimentalMaterial3Api::class)
